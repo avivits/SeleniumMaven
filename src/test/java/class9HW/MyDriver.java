@@ -11,22 +11,22 @@ import org.testng.annotations.Test;
 public class MyDriver {
 
     private static WebDriver driver;
+    private static FirefoxDriver driver1;
 
 
     @BeforeClass
     public static void runBefore(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\IMOE001\\Downloads\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
+//        System.setProperty("webdriver.fireFox.driver", "C:\\Users\\IMOE001\\Downloads\\chromedriver_win32\\chromedriver.exe");
+//        driver1 = new FirefoxDriver();
     }
 
     @Test
     public static void q1Driver()  {
 
          driver.get("https://www.walla.co.il");
-
-//        System.setProperty("webdriver.fireFox.driver", "C:\\Users\\IMOE001\\Downloads\\chromedriver_win32\\chromedriver.exe");
-//        driver1 = new FirefoxDriver();
-//        driver1.get("https://www.walla.co.il");
+//        driver1.get("https://www.ynet.co.il");
 
     }
 
@@ -43,7 +43,6 @@ public class MyDriver {
     public void q3Driver(){
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\IMOE001\\Downloads\\chromedriver_win32\\chromedriver.exe");
         driver = new ChromeDriver();
-        //driver.get("https://www.youtube.com/");
         String title= "YouTube";
         String url = "https://www.youtube.com/";
         Assert.assertEquals(driver.getTitle(),title);
