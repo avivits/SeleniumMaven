@@ -91,6 +91,12 @@ public class MainDriver {
 
     //-----------------------------------Q4-----------------------------------------
 
+    @Test
+    public static void calculatorSite(){
+        driver.get("https://dgotlieb.github.io/WebCalculato");
 
+        driver.findElement(By.id("seven"));
+//          ?????????
+    }
 
 }
