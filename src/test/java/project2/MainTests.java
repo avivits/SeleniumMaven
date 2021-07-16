@@ -82,9 +82,6 @@ public class MainTests {
 
         //assert url
 
-
-
-
     }
 
 
@@ -99,6 +96,7 @@ public class MainTests {
             test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step3")).build());
         }
     }
+
 //
 //    //////---------------------------------- step 4 ------------------------------
 //
@@ -150,6 +148,6 @@ public class MainTests {
     @AfterClass
     public void afterAll(){
         extent.flush();
-//        driver.quit();
+        driver.quit();
     }
 }

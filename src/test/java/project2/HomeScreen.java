@@ -52,7 +52,6 @@ public class HomeScreen extends BasePage2 {
 
         JavascriptExecutor js = (JavascriptExecutor) driverOfHomeScreen; // pop-up interrupting, scrolling down
         js.executeScript("window.scrollBy(0,250)", "");
-
         clickElement(By.cssSelector("a[rel=nofollow]")); //"find me a present" button
     }
 

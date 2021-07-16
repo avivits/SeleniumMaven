@@ -24,7 +24,7 @@ public class LoginPage2 extends BasePage2 {
 
      sendKeysToElement(By.className("ember-text-field"),"avivit");
 //     sendKeysToElement(By.cssSelector("input[placeholder=שם פרטי"),"avivit");
-     sendKeysToElement(By.cssSelector("input[placeholder=מייל]"),"avivitush16@gmal.com"); //email
+     sendKeysToElement(By.cssSelector("input[placeholder=מייל]"),"avivitush17@gmal.com"); //email
      sendKeysToElement(By.cssSelector("input[placeholder=סיסמה]"),"An123456"); //password
      sendKeysToElement(By.cssSelector("input[placeholder=\"אימות סיסמה\"]"),"An123456"); //password
 
