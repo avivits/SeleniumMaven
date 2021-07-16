@@ -38,8 +38,8 @@ public class MainTests {
         if(getData("browserType").equals("Chrome")) {   //reading from external XML file
             driver = DriverSingleton2.getDriverInstance();          //browser
         }
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         driver.get(getData("URL"));                       //reading from external XML file
 
@@ -64,8 +64,8 @@ public class MainTests {
 
         //assert register details
         Thread.sleep(5000);
-        String name = "avivit";
-        String mail = "avivitush13@gmal.com";
+        String name = "avivit1";
+        String mail = "avivits3@gmal.com";
         String password = "An123456";
         String password2 = "An123456";
 
@@ -123,12 +123,11 @@ public class MainTests {
         }
 
         //assert receiver and sender
-        Thread.sleep(5000);
+//        Thread.sleep(5000);
         String receiver = "אבא";
         String sender = "אביבית";
-
         Assert.assertEquals(driver.findElement(By.id("friendName")).getText(),receiver);
-        Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"ember1595\"]")).getText(),sender);
+        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=\"שם שולח המתנה\"]")).getText(),sender);
     }
 
 

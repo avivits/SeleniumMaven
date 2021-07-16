@@ -3,10 +3,8 @@ package project2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class SendingPresent extends BasePage2{
 
@@ -20,7 +18,7 @@ public class SendingPresent extends BasePage2{
     public void send(){
        // printColor(); //extra
         sendingTo();
-        reciverName();
+        receiverName();
         pickEvent();
         blessingText();
         uploadPict();
@@ -31,18 +29,18 @@ public class SendingPresent extends BasePage2{
         paymentBttn();
     }
 
-    private void printColor(){
-//        String buttonColor = driverOfSending.findElement(By.name("submit")).getCssValue("background-color");
-        String textColor = driverOfSending.findElement(By.className("label bottom-xs")).getCssValue("color");
-        System.out.println("text color: " + textColor);
-    }
+//    private void printColor(){
+////        String buttonColor = driverOfSending.findElement(By.name("submit")).getCssValue("background-color");
+//        String textColor = driverOfSending.findElement(By.className("label bottom-xs")).getCssValue("color");
+//        System.out.println("text color: " + textColor);
+//    }
 
     private void sendingTo(){
 //        clickElement(By.className("button-forMyself"));
         clickElement(By.className("button-forSomeone"));
     }
 
-    private void reciverName(){
+    private void receiverName(){
         sendKeysToElement((By.id("friendName")), "אבא");
 
     }
@@ -66,7 +64,7 @@ public class SendingPresent extends BasePage2{
 
     private void goOnButtn(){
 
-        clickElement(By.cssSelector("button[gtm=המשך]"));   //works
+        clickElement(By.cssSelector("button[gtm=המשך]"));
     }
 
     private void paymentRadioButtn(){

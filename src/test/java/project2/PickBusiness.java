@@ -36,9 +36,7 @@ public class PickBusiness extends BasePage2{
 
     private void PressChooseBttn(){
 
-//        driverOfBusiness.get("https://buyme.co.il/supplier/348972?budget=3&category=16&query=&region=11"); //****
-
-        List<WebElement>chooseBttnList = driverOfBusiness.findElements(By.className("mx-12"));          //button בחירה
+        List<WebElement>chooseBttnList = driverOfBusiness.findElements(By.className("mx-12"));   //button בחירה
         chooseBttnList.get(3).click();
 
     }
