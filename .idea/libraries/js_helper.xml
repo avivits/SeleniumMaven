@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="js_helper">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/js_helper" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/js_helper" recursive="false" />
+  </library>
+</component>

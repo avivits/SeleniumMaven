@@ -61,7 +61,7 @@ public class MyDriver {
     @Test
     public void q7Driver(){
         driver.get("https://www.amazon.com/");
-        String title = "Amazon.com.Spend less.Smile more." ;
+        String title = "Amazon.com. Spend less. Smile more." ;
         Assert.assertEquals(driver.getTitle() , title);
         driver.findElement(By.id("twotabsearchtextbox")).sendKeys("Leather shoes");
 
@@ -83,7 +83,7 @@ public class MyDriver {
     public void q10Driver() {
         driver.get("https://dgotlieb.github.io/Controllers/");
         Select mySelection = new Select(driver.findElement(By.name("dropdownmenu")));
-        mySelection.selectByValue("Butter");
+        mySelection.selectByValue("Cheese");
         for (int i = 0; i < mySelection.getOptions().size(); i++) {
             System.out.println(mySelection.getOptions().get(i).getText());
         }

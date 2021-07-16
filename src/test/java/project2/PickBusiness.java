@@ -29,8 +29,6 @@ public class PickBusiness extends BasePage2{
     private void pickBusiness() {
 
         clickElement(By.linkText("TAIZU - טאיזו"));
-//        List<WebElement>bussList = driverOfBusiness.findElements(By.className("bottom"));
-//        bussList.get(9).click();
 
     }
 
@@ -38,7 +36,7 @@ public class PickBusiness extends BasePage2{
 
     private void PressChooseBttn(){
 
-        driverOfBusiness.get("https://buyme.co.il/supplier/348972?budget=3&category=16&query=&region=11"); //****
+//        driverOfBusiness.get("https://buyme.co.il/supplier/348972?budget=3&category=16&query=&region=11"); //****
 
         List<WebElement>chooseBttnList = driverOfBusiness.findElements(By.className("mx-12"));          //button בחירה
         chooseBttnList.get(3).click();

@@ -7,6 +7,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -17,6 +18,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 ////------------------------------ “BuyMe” website sanity test -----------------------------------------------------
 
@@ -25,6 +28,7 @@ public class MainTests {
     private static WebDriver driver;
     private static ExtentReports extent= new ExtentReports();
     private static ExtentTest test = extent.createTest("MyFirstTest", "Sample description");
+    private static WebDriverWait wait;
 
 
     //------------------------------------step 1--------------------------
@@ -34,6 +38,8 @@ public class MainTests {
         if(getData("browserType").equals("Chrome")) {   //reading from external XML file
             driver = DriverSingleton2.getDriverInstance();          //browser
         }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         driver.get(getData("URL"));                       //reading from external XML file
 
@@ -49,7 +55,7 @@ public class MainTests {
 //////----------------------------------------- step 1 -------------------------------
 
     @Test(priority = 1)
-    public void introAndRegister()  {
+    public void introAndRegister() throws InterruptedException {
         try {
             new LoginPage2().login();
         }catch (NoSuchElementException e){
@@ -57,6 +63,7 @@ public class MainTests {
         }
 
         //assert register details
+        Thread.sleep(5000);
         String name = "avivit";
         String mail = "avivitush13@gmal.com";
         String password = "An123456";
@@ -80,15 +87,19 @@ public class MainTests {
             test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step2")).build());
         }
 
-        //assert url
-
     }
 
 
 //    //////----------------------------------- step 3 -------------------------------
 //
     @Test(priority = 3)
-    public static void businessChoosing() {
+
+    public static void businessChoosing() throws InterruptedException {
+        Thread.sleep(5000);
+        String  url = "https://buyme.co.il/search?budget=3&category=16&region=11";
+        Assert.assertEquals(driver.getCurrentUrl(),url);
+
+
         try {
                 new PickBusiness().pickPresent();
 
@@ -112,6 +123,7 @@ public class MainTests {
         }
 
         //assert receiver and sender
+        Thread.sleep(5000);
         String receiver = "אבא";
         String sender = "אביבית";
 
@@ -148,6 +160,6 @@ public class MainTests {
     @AfterClass
     public void afterAll(){
         extent.flush();
-        driver.quit();
+//        driver.quit();
     }
 }

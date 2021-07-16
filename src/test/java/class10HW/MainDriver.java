@@ -31,11 +31,7 @@ public class MainDriver {
 
     }
 
-    @Test
-    public static void openSite() {
 
-
-    }
     @Test
     public static void removeBtn(){
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -62,7 +58,7 @@ public class MainDriver {
 
     }
 
-    //-----------------------------------Q2-----------------------------------------
+//    //-----------------------------------Q2-----------------------------------------
 
 
     @Test
@@ -82,21 +78,21 @@ public class MainDriver {
 
     }
 
-    //-----------------------------------Q3-----------------------------------------
-
-    //PageLoadTimeOut: One of the timeouts is focused on the time a webpage needs to be loaded –
-    //the pageLoadTimeout limits the time that the script allots for a web page to
-    //be displayed.
-
-
-    //-----------------------------------Q4-----------------------------------------
-
-    @Test
-    public static void calculatorSite(){
-        driver.get("https://dgotlieb.github.io/WebCalculato");
-
-        driver.findElement(By.id("seven"));
-//          ?????????
-    }
+//    //-----------------------------------Q3-----------------------------------------
+//
+//    //PageLoadTimeOut: One of the timeouts is focused on the time a webpage needs to be loaded –
+//    //the pageLoadTimeout limits the time that the script allots for a web page to
+//    //be displayed.
+//
+//
+//    //-----------------------------------Q4-----------------------------------------
+//
+//    @Test
+//    public static void calculatorSite(){
+//        driver.get("https://dgotlieb.github.io/WebCalculato");
+//
+//        driver.findElement(By.id("seven"));
+////          ?????????
+//    }
 
 }

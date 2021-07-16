@@ -18,7 +18,6 @@ public class SendingPresent extends BasePage2{
     }
 
     public void send(){
-    driverOfSending.get("https://buyme.co.il/package/348972/11617734"); //********
        // printColor(); //extra
         sendingTo();
         reciverName();
@@ -86,8 +85,8 @@ public class SendingPresent extends BasePage2{
     }
     private void senderName(){
 
-//        sendKeysToElement(By.cssSelector("input[placeholder=\"שם שולח המתנה\"]"), "אביבית");
-        sendKeysToElement(By.xpath("//*[@id=\"ember1595\"]"), "אביבית");
+        sendKeysToElement(By.cssSelector("input[placeholder=\"שם שולח המתנה\"]"), "אביבית");
+//        sendKeysToElement(By.xpath("//*[@id=\"ember1595\"]"), "אביבית");
     }
 
     private void paymentBttn() {
