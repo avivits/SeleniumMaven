@@ -31,7 +31,6 @@ public class MainTests {
     private static WebDriverWait wait;
 
 
-    //------------------------------------step 1--------------------------
 
     @BeforeClass
     public static void beforeAll() throws Exception {
@@ -65,7 +64,7 @@ public class MainTests {
         //assert register details
         Thread.sleep(5000);
         String name = "avivit1";
-        String mail = "avivits3@gmal.com";
+        String mail = "avivits8@gmal.com";
         String password = "An123456";
         String password2 = "An123456";
 

@@ -32,7 +32,6 @@ public class BasePage2 {
 
         private WebElement getWebElement(By locator) {
 
-//            driver = DriverSingleton2.getDriverInstance();
             return DriverSingleton2.getDriverInstance().findElement(locator);
         }
 
