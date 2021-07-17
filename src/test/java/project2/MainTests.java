@@ -51,7 +51,7 @@ public class MainTests {
 
 
 
-//////----------------------------------------- step 1 -------------------------------
+////----------------------------------------- step 1 -------------------------------
 
     @Test(priority = 1)
     public void introAndRegister() throws InterruptedException {
@@ -75,59 +75,59 @@ public class MainTests {
 
     }
 
-//////----------------------------------------- step 2 -------------------------------
-//    @Test(priority = 2)
-//    public  static void homeScreenPick(){
-//
-//        try {
-//            new HomeScreen().onceLogin();
-//
-//        }catch (NoSuchElementException e){
-//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step2")).build());
-//        }
-//
-//    }
+////----------------------------------------- step 2 -------------------------------
+    @Test(priority = 2)
+    public  static void homeScreenPick(){
+
+        try {
+            new HomeScreen().onceLogin();
+
+        }catch (NoSuchElementException e){
+            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step2")).build());
+        }
+
+    }
 
 
-//    //////----------------------------------- step 3 -------------------------------
-////
-//    @Test(priority = 3)
+    //////----------------------------------- step 3 -------------------------------
 //
-//    public static void businessChoosing() throws InterruptedException {
+    @Test(priority = 3)
+
+    public static void businessChoosing() throws InterruptedException {
+        Thread.sleep(5000);
+        String  url = "https://buyme.co.il/search?budget=3&category=16&region=11";
+        Assert.assertEquals(driver.getCurrentUrl(),url);
+
+
+        try {
+                new PickBusiness().pickPresent();
+
+        }catch (NoSuchElementException e) {
+            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step3")).build());
+        }
+    }
+
+
+    //////---------------------------------- step 4 ------------------------------
+
+
+    @Test(priority = 4)
+    public static void senderAndReceiver() throws InterruptedException {
+        try {
+
+            new SendingPresent().send();
+        } catch (NoSuchElementException e) {
+            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot("step4")).build());
+            System.out.println("locator not found3");
+        }
+
+        //assert receiver and sender
 //        Thread.sleep(5000);
-//        String  url = "https://buyme.co.il/search?budget=3&category=16&region=11";
-//        Assert.assertEquals(driver.getCurrentUrl(),url);
-//
-//
-//        try {
-//                new PickBusiness().pickPresent();
-//
-//        }catch (NoSuchElementException e) {
-//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step3")).build());
-//        }
-//    }
-
-//
-//    //////---------------------------------- step 4 ------------------------------
-//
-//
-//    @Test(priority = 4)
-//    public static void senderAndReceiver() throws InterruptedException {
-//        try {
-//
-//            new SendingPresent().send();
-//        } catch (NoSuchElementException e) {
-//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot("step4")).build());
-//            System.out.println("locator not found3");
-//        }
-//
-//        //assert receiver and sender
-////        Thread.sleep(5000);
-//        String receiver = "אבא";
-//        String sender = "אביבית";
-//        Assert.assertEquals(driver.findElement(By.id("friendName")).getText(),receiver);
-//        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=\"שם שולח המתנה\"]")).getText(),sender);
-//    }
+        String receiver = "אבא";
+        String sender = "אביבית";
+        Assert.assertEquals(driver.findElement(By.id("friendName")).getText(),receiver);
+        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=\"שם שולח המתנה\"]")).getText(),sender);
+    }
 
 
     //creating an external XML file to store url and browser

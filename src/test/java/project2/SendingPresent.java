@@ -31,7 +31,8 @@ public class SendingPresent extends BasePage2{
 
 //    private void printColor(){
 ////        String buttonColor = driverOfSending.findElement(By.name("submit")).getCssValue("background-color");
-//        String textColor = driverOfSending.findElement(By.className("label bottom-xs")).getCssValue("color");
+        String textColor = driverOfSending.findElement(By.className("label bottom-xs")).getCssValue("background-color");
+        String textColor1 = driverOfSending.findElement(By.className("label bottom-xs")).getCssValue("color");
 //        System.out.println("text color: " + textColor);
 //    }
 
