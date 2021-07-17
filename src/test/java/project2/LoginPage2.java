@@ -26,7 +26,7 @@ public class LoginPage2 extends BasePage2 {
         private void enterUserDetails(){
         //enter user details for registration
         sendKeysToElement(By.className("ember-text-field"),"avivit1");
-        sendKeysToElement(By.cssSelector("input[placeholder=מייל]"),"avivits8@gmal.com"); //email
+        sendKeysToElement(By.cssSelector("input[placeholder=מייל]"),"avivits9@gmal.com"); //email
         sendKeysToElement(By.cssSelector("input[placeholder=סיסמה]"),"An123456"); //password
         sendKeysToElement(By.cssSelector("input[placeholder=\"אימות סיסמה\"]"),"An123456"); //password
 

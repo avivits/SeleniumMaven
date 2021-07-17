@@ -64,7 +64,7 @@ public class MainTests {
         //assert register details
         Thread.sleep(5000);
         String name = "avivit1";
-        String mail = "avivits8@gmal.com";
+        String mail = "avivits9@gmal.com";
         String password = "An123456";
         String password2 = "An123456";
 
@@ -76,58 +76,58 @@ public class MainTests {
     }
 
 //////----------------------------------------- step 2 -------------------------------
-    @Test(priority = 2)
-    public  static void homeScreenPick(){
-
-        try {
-            new HomeScreen().onceLogin();
-
-        }catch (NoSuchElementException e){
-            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step2")).build());
-        }
-
-    }
+//    @Test(priority = 2)
+//    public  static void homeScreenPick(){
+//
+//        try {
+//            new HomeScreen().onceLogin();
+//
+//        }catch (NoSuchElementException e){
+//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step2")).build());
+//        }
+//
+//    }
 
 
 //    //////----------------------------------- step 3 -------------------------------
+////
+//    @Test(priority = 3)
 //
-    @Test(priority = 3)
-
-    public static void businessChoosing() throws InterruptedException {
-        Thread.sleep(5000);
-        String  url = "https://buyme.co.il/search?budget=3&category=16&region=11";
-        Assert.assertEquals(driver.getCurrentUrl(),url);
-
-
-        try {
-                new PickBusiness().pickPresent();
-
-        }catch (NoSuchElementException e) {
-            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step3")).build());
-        }
-    }
+//    public static void businessChoosing() throws InterruptedException {
+//        Thread.sleep(5000);
+//        String  url = "https://buyme.co.il/search?budget=3&category=16&region=11";
+//        Assert.assertEquals(driver.getCurrentUrl(),url);
+//
+//
+//        try {
+//                new PickBusiness().pickPresent();
+//
+//        }catch (NoSuchElementException e) {
+//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step3")).build());
+//        }
+//    }
 
 //
 //    //////---------------------------------- step 4 ------------------------------
 //
-
-    @Test(priority = 4)
-    public static void senderAndReceiver() throws InterruptedException {
-        try {
-
-            new SendingPresent().send();
-        } catch (NoSuchElementException e) {
-            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot("step4")).build());
-            System.out.println("locator not found3");
-        }
-
-        //assert receiver and sender
-//        Thread.sleep(5000);
-        String receiver = "אבא";
-        String sender = "אביבית";
-        Assert.assertEquals(driver.findElement(By.id("friendName")).getText(),receiver);
-        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=\"שם שולח המתנה\"]")).getText(),sender);
-    }
+//
+//    @Test(priority = 4)
+//    public static void senderAndReceiver() throws InterruptedException {
+//        try {
+//
+//            new SendingPresent().send();
+//        } catch (NoSuchElementException e) {
+//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot("step4")).build());
+//            System.out.println("locator not found3");
+//        }
+//
+//        //assert receiver and sender
+////        Thread.sleep(5000);
+//        String receiver = "אבא";
+//        String sender = "אביבית";
+//        Assert.assertEquals(driver.findElement(By.id("friendName")).getText(),receiver);
+//        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=\"שם שולח המתנה\"]")).getText(),sender);
+//    }
 
 
     //creating an external XML file to store url and browser
