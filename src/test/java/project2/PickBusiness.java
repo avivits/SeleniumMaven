@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import java.net.MalformedURLException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -15,18 +16,18 @@ public class PickBusiness extends BasePage2{
 
     private WebDriver driverOfBusiness;
 
-    public PickBusiness(){
+    public PickBusiness() throws MalformedURLException {
         driverOfBusiness = DriverSingleton2.getDriverInstance();
 
     }
 
-    public void pickPresent(){
+    public void pickPresent() throws MalformedURLException {
         pickBusiness();
         PressChooseBttn();
     }
 
 
-    private void pickBusiness() {
+    private void pickBusiness() throws MalformedURLException {
 
         clickElement(By.linkText("TAIZU - טאיזו"));
 

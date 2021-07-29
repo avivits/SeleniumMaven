@@ -18,6 +18,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -26,26 +27,27 @@ import java.util.concurrent.TimeUnit;
 public class MainTests {
 
     private static WebDriver driver;
-    private static ExtentReports extent= new ExtentReports();
-    private static ExtentTest test = extent.createTest("MyFirstTest", "Sample description");
+//    private static ExtentReports extent= new ExtentReports();
+//    private static ExtentTest test = extent.createTest("MyFirstTest", "Sample description");
     private static WebDriverWait wait;
 
 
 
     @BeforeClass
     public static void beforeAll() throws Exception {
-        if(getData("browserType").equals("Chrome")) {   //reading from external XML file
-            driver = DriverSingleton2.getDriverInstance();          //browser
-        }
+//        if(getData("browserType").equals("Chrome")) {   //reading from external XML file
+//            driver = DriverSingleton2.getDriverInstance();          //browser
+//        }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
-        driver.get(getData("URL"));                       //reading from external XML file
+//        driver.get(getData("URL"));                       //reading from external XML file
+        driver.get("https://buyme.co.il/");
 
-        String cwd = System.getProperty("user.dir");              //creating html file inside the project
-        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(cwd + "\\extent.html");
-        extent.attachReporter(htmlReporter);
-        test.log(Status.INFO, "before test method");
+//        String cwd = System.getProperty("user.dir");              //creating html file inside the project
+//        ExtentSparkReporter htmlReporter = new ExtentSparkReporter(cwd + "\\extent.html");
+//        extent.attachReporter(htmlReporter);
+//        test.log(Status.INFO, "before test method");
 
     }
 
@@ -53,27 +55,27 @@ public class MainTests {
 
 ////----------------------------------------- step 1 -------------------------------
 
-    @Test(priority = 1)
-    public void introAndRegister() throws InterruptedException {
-        try {
-            new LoginPage2().login();
-        }catch (NoSuchElementException e){
-            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step1")).build());
-        }
-
-        //assert register details
-        Thread.sleep(5000);
-        String name = "avivit1";
-        String mail = "avivits9@gmal.com";
-        String password = "An123456";
-        String password2 = "An123456";
-
-        Assert.assertEquals(driver.findElement(By.className("ember-text-field")).getText(),name);
-        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=מייל]")).getText(),mail);
-        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=סיסמה]")).getText(),password);
-        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=\"אימות סיסמה\"]")).getText(),password2);
-
-    }
+//    @Test(priority = 1)
+//    public void introAndRegister() throws InterruptedException {
+//        try {
+//            new LoginPage2().login();
+//        }catch (NoSuchElementException | MalformedURLException e){
+//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step1")).build());
+//        }
+//
+//        //assert register details
+//        Thread.sleep(5000);
+//        String name = "avivit1";
+//        String mail = "avivits9@gmal.com";
+//        String password = "An123456";
+//        String password2 = "An123456";
+//
+//        Assert.assertEquals(driver.findElement(By.className("ember-text-field")).getText(),name);
+//        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=מייל]")).getText(),mail);
+//        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=סיסמה]")).getText(),password);
+//        Assert.assertEquals(driver.findElement(By.cssSelector("input[placeholder=\"אימות סיסמה\"]")).getText(),password2);
+//
+//    }
 
 ////----------------------------------------- step 2 -------------------------------
     @Test(priority = 2)
@@ -82,15 +84,15 @@ public class MainTests {
         try {
             new HomeScreen().onceLogin();
 
-        }catch (NoSuchElementException e){
-            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step2")).build());
+        }catch (NoSuchElementException | MalformedURLException e){
+//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step2")).build());
         }
 
     }
 
 
     //////----------------------------------- step 3 -------------------------------
-//
+
     @Test(priority = 3)
 
     public static void businessChoosing() throws InterruptedException {
@@ -102,8 +104,8 @@ public class MainTests {
         try {
                 new PickBusiness().pickPresent();
 
-        }catch (NoSuchElementException e) {
-            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step3")).build());
+        }catch (NoSuchElementException | MalformedURLException e) {
+//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot ("step3")).build());
         }
     }
 
@@ -116,13 +118,12 @@ public class MainTests {
         try {
 
             new SendingPresent().send();
-        } catch (NoSuchElementException e) {
-            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot("step4")).build());
-            System.out.println("locator not found3");
+        } catch (NoSuchElementException | MalformedURLException e) {
+//            test.fail("details: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(takeScreenShot("step4")).build());
         }
 
         //assert receiver and sender
-//        Thread.sleep(5000);
+        Thread.sleep(5000);
         String receiver = "אבא";
         String sender = "אביבית";
         Assert.assertEquals(driver.findElement(By.id("friendName")).getText(),receiver);
@@ -157,7 +158,7 @@ public class MainTests {
 
     @AfterClass
     public void afterAll(){
-        extent.flush();
+//        extent.flush();
 //        driver.quit();
     }
 }

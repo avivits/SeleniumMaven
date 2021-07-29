@@ -9,7 +9,7 @@ import org.openqa.selenium.*;
 
 import java.io.File;
 import java.io.IOException;
-
+import java.net.MalformedURLException;
 
 
 public class BasePage2 {
@@ -18,19 +18,20 @@ public class BasePage2 {
 
 
 
-        public void clickElement(By locator) {
+        public void clickElement(By locator) throws MalformedURLException {
+
             getWebElement(locator).click();
           }
 
-        public void sendKeysToElement(By locator, String text) {
+        public void sendKeysToElement(By locator, String text) throws MalformedURLException {
             getWebElement(locator).sendKeys(text);
         }
 
-        public void submitElement(By locator){
+        public void submitElement(By locator) throws MalformedURLException {
             getWebElement(locator).submit();
         }
 
-        private WebElement getWebElement(By locator) {
+        private WebElement getWebElement(By locator) throws MalformedURLException {
 
             return DriverSingleton2.getDriverInstance().findElement(locator);
         }
